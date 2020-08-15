@@ -38,6 +38,8 @@ function textToSpeech(accessToken, text) {
     // Convert the XML into a string to send in the TTS request.
     let body = xml_body.toString();
 
+    console.log(body);
+
     let options = {
         method: 'POST',
         // TODO: update code:
@@ -52,6 +54,7 @@ function textToSpeech(accessToken, text) {
         },
         body: body
     }
+
 
     let request = rp(options)
         .on('response', (response) => {
@@ -72,7 +75,7 @@ async function main() {
     // e.g. const subscriptionKey = "your_key_here";
     // const subscriptionKey = process.env.SPEECH_SERVICE_KEY;
     // TODO: update code:
-    const subscriptionKey = "6e18dc1981eb49c1a29640dd7af0bdcc";
+    const subscriptionKey = "Keyin your key here";
     if (!subscriptionKey) {
         throw new Error('Environment variable for your subscription key is not set.')
     };
@@ -83,7 +86,7 @@ async function main() {
     // );
     // console.log(text);
     // TODO: update code
-    const text = "你好";
+    const text = "你好, 我會讀中文給你聽";
 
     try {
         const accessToken = await getAccessToken(subscriptionKey);
